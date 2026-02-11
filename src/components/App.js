@@ -21,12 +21,11 @@ export class App extends Component {
     totalAmount.textContent = `Итого: $${totalAmountSpan.textContent}`;
 
     this.$total = totalAmountSpan;
-
+    this.$rootElement.appendChild(totalAmount);
     const donateForm = new Form();
     this.$rootElement.appendChild(donateForm.$rootElement);
     const donateList = new List();
     this.$rootElement.appendChild(donateList.$rootElement);
-    this.$rootElement.appendChild(totalAmount);
   }
 
   onItemCreate(amount) {
