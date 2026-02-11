@@ -30,7 +30,7 @@ export class Form extends Component {
     this.$button = submitButton;
 
     this.$input.addEventListener("input", this.handleInput.bind(this));
-    this.$button.addEventListener("submit", this.handleSubmit.bind(this));
+    this.$rootElement.addEventListener("submit", this.handleSubmit.bind(this));
 
     inputLabel.appendChild(input);
     this.$rootElement.appendChild(inputLabel);
@@ -57,6 +57,11 @@ export class Form extends Component {
   }
 
   handleSubmit(event) {
-    // ...
+    event.preventDefault();
+    if (this.isValid) {
+      console.log(this.$input.value);
+      this.state.amount = "";
+      this.$input.value = "";
+    }
   }
 }
