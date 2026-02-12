@@ -13,6 +13,7 @@ export class List extends Component {
     donatesContainer.className = "donates-container__donates";
 
     this.$listContainer = donatesContainer;
+
     this.$rootElement.appendChild(donatesContainerTtitle);
     this.$rootElement.appendChild(donatesContainer);
   }
