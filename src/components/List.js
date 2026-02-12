@@ -19,6 +19,6 @@ export class List extends Component {
   }
 
   addItem(item) {
-    // ...
+    this.$listContainer.appendChild(item.$rootElement);
   }
 }

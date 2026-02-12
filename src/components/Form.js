@@ -47,7 +47,6 @@ export class Form extends Component {
   }
 
   handleInput(event) {
-    console.log(event.target.value);
     this.state.amount = event.target.value;
     if (!this.isValid) {
       this.$button.setAttribute("disabled", "true");
@@ -59,7 +58,7 @@ export class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid) {
-      console.log(this.$input.value);
+      this.props.onSubmit(Number(this.state.amount));
       this.state.amount = "";
       this.$input.value = "";
     }
