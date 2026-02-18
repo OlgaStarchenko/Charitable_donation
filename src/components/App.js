@@ -32,10 +32,21 @@ export class App extends Component {
   }
 
   onItemCreate(amount) {
-    const item = new ListItem({ amount: amount });
+    const item = new ListItem({
+      amount: amount,
+      onDelete: this.onItemDelete.bind(this),
+    });
+
     this.state.donates.push(item);
     this.donateList.addItem(item);
     this.state.total += amount;
     this.$total.textContent = this.state.total;
+  }
+
+  onItemDelete(id, amount, element) {
+    this.state.donates.filter((item) => item.state.id !== id);
+    this.state.total -= amount;
+    this.$total.textContent = this.state.total;
+    element.remove();
   }
 }

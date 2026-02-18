@@ -16,7 +16,17 @@ export class ListItem extends Component {
     const bold = document.createElement("b");
     bold.textContent = this.state.amount;
 
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-button";
+    deleteBtn.textContent = "Удалить";
+    deleteBtn.addEventListener("click", this.handleDelete.bind(this));
+
     this.$rootElement.appendChild(dateText);
     this.$rootElement.appendChild(bold);
+    this.$rootElement.appendChild(deleteBtn);
+  }
+
+  handleDelete() {
+    this.props.onDelete(this.state.id, this.state.amount, this.$rootElement);
   }
 }
